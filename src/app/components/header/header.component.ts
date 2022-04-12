@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
+  menuItems = [
+    {icon: 'settings', text:'Configurações' },
+    {icon: 'shield', text:'Políticas de privacidade' },
+    {icon: 'information-circle', text:'Sobre' },
+  ];
   constructor() { }
 
   ngOnInit() {}

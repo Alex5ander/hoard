@@ -10,7 +10,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'exercises',
     loadChildren: () => import('./screens/exercises/exercises.module').then( m => m.ExercisesPageModule)
   },

@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { CategoriesComponent } from 'src/app/categories/categories.component';
+import { CategoriesComponent } from 'src/app/components/categories/categories.component';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 
 
