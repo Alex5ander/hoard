@@ -1,0 +1,12 @@
+ion-toolbar{
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}
+
+.header {
+    position: relative;
+    ion-title {
+        position: absolute;
+        top:0;
+    }
+}
