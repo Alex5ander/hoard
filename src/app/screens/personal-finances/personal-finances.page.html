@@ -1,3 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  Finanças pessoais
+
+  <ion-title class="ion-text-center">Finanças pessoais</ion-title>
+
+  <ion-list lines="none">
+    
+    <!-- <ion-item *ngFor="let item of items" lines="none" routerLink="a">
+      <ion-thumbnail slot="start">
+        <ion-img src="https://github.com/Alex5ander.png"></ion-img>
+      </ion-thumbnail>
+
+      <ion-text size="small">
+        <h6>{{item.title}}</h6>
+        <p>{{item.subtitle}}</p>
+      </ion-text>
+
+      <ion-button slot="end" color="success">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-item> -->
+
+    <ion-card *ngFor="let item of items" lines="none" routerLink="a">
+
+      <ion-card-header>
+        <ion-thumbnail>
+          <ion-img src="https://github.com/Alex5ander.png"></ion-img>
+        </ion-thumbnail>
+
+        <ion-card-title>{{item.title}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-text>
+          <p>{{item.subtitle}}</p>
+        </ion-text>
+      </ion-card-content>
+
+      <ion-button color="primary" expand="full">
+        
+      </ion-button>
+
+    </ion-card>
+    
+  </ion-list>
 </ion-content>
