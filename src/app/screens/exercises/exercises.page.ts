@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExercisesPage implements OnInit {
 
+  items = [{
+    title: 'Padrão de vida',
+    description: 'Teste o que você aprendeu sobre finanças pessoais',
+    routerLink: '',
+  }];
   constructor() { }
 
   ngOnInit() {

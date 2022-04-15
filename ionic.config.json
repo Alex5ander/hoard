@@ -1,5 +1,7 @@
 {
   "name": "hoard",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

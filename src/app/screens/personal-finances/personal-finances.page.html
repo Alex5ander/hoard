@@ -1,54 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-back-button slot="start"></ion-back-button>
+    <ion-back-button slot="start" color="light"></ion-back-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" >
-  
+<ion-content [fullscreen]="true" class="ion-no-padding">
+
   <div class="header">
-    <ion-img src="https://github.com/Alex5ander.png"></ion-img>
-    <ion-title class="ion-text-center">Finanças pessoais</ion-title>
+    <ion-img src="../../../assets/images/leather-gb8902246a_640.jpg"></ion-img>
+    <ion-backdrop visible="true"></ion-backdrop>
+    <ion-title class="ion-text-center" color="light">Finanças pessoais</ion-title>
   </div>
 
   <ion-list lines="none">
-    
-    <!-- <ion-item *ngFor="let item of items" lines="none" routerLink="a">
+
+    <ion-item *ngFor="let item of items" lines="none" [routerLink]="item.routerLink">
       <ion-thumbnail slot="start">
         <ion-img src="https://github.com/Alex5ander.png"></ion-img>
       </ion-thumbnail>
 
       <ion-text size="small">
         <h6>{{item.title}}</h6>
-        <p>{{item.subtitle}}</p>
+        <p>{{item.description}}</p>
       </ion-text>
 
       <ion-button slot="end" color="success">
         <ion-icon name="chevron-forward-outline"></ion-icon>
       </ion-button>
-    </ion-item> -->
+    </ion-item>
 
-    <ion-card *ngFor="let item of items" lines="none" routerLink="a">
-
-      <ion-card-header>
-        <ion-thumbnail>
-          <ion-img src="https://github.com/Alex5ander.png"></ion-img>
-        </ion-thumbnail>
-
-        <ion-card-title>{{item.title}}</ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content>
-        <ion-text>
-          <p>{{item.subtitle}}</p>
-        </ion-text>
-      </ion-card-content>
-
-      <ion-button color="primary" expand="full">
-        
-      </ion-button>
-
-    </ion-card>
-    
   </ion-list>
 </ion-content>

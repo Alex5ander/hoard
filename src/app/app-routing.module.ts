@@ -13,13 +13,12 @@ const routes: Routes = [
   },
   {
     path: 'exercises',
-    loadChildren: () => import('./screens/exercises/exercises.module').then( m => m.ExercisesPageModule)
+    loadChildren: () => import('./screens/exercises/exercises.module').then(m => m.ExercisesPageModule)
   },
   {
     path: 'personal-finances',
-    loadChildren: () => import('./screens/personal-finances/personal-finances.module').then( m => m.PersonalFinancesPageModule)
+    loadChildren: () => import('./screens/personal-finances/personal-finances.module').then(m => m.PersonalFinancesPageModule)
   },
-
 ];
 
 @NgModule({
