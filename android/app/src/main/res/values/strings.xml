@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">hoard</string>
     <string name="title_activity_main">hoard</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="package_name">br.com.hoard</string>
+    <string name="custom_url_scheme">br.com.hoard</string>
 </resources>

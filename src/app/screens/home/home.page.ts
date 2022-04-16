@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { App } from '@capacitor/app';
+import { IonRouterOutlet, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private platform: Platform, private ionRouterOutlet: IonRouterOutlet) {
+    this.platform.backButton.subscribeWithPriority(-1, () => {
+      if(!this.ionRouterOutlet.canGoBack()) {
+        App.exitApp();
+      }
+    });
+  }
 
 }

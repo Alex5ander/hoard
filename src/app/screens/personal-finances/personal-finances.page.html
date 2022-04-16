@@ -16,7 +16,7 @@
 
     <ion-item *ngFor="let item of items" lines="none" [routerLink]="item.routerLink">
       <ion-thumbnail slot="start">
-        <ion-img src="https://github.com/Alex5ander.png"></ion-img>
+        <ion-img style="background-color: gray; width: 4rem; height: 4rem;"></ion-img>
       </ion-thumbnail>
 
       <ion-text size="small">
@@ -25,7 +25,7 @@
       </ion-text>
 
       <ion-button slot="end" color="success">
-        <ion-icon name="chevron-forward-outline"></ion-icon>
+        <ion-icon slot="icon-only" name="chevron-forward-outline"></ion-icon>
       </ion-button>
     </ion-item>
 

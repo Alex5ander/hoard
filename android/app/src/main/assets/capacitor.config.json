@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "hoard",
+	"appId": "br.com.hoard",
+	"appName": "Hoard",
 	"webDir": "www",
 	"bundledWebRuntime": false
 }
