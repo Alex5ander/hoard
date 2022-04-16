@@ -27,11 +27,6 @@ export class ExercisesPage implements OnInit {
       title: 'Titulo',
       description: 'Teste o que você aprendeu sobre...',
       routerLink: '',
-    },
-    {
-      title: 'Titulo',
-      description: 'Teste o que você aprendeu sobre...',
-      routerLink: '',
     }
   ];
   constructor() { }

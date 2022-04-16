@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">hoard</string>
-    <string name="title_activity_main">hoard</string>
+    <string name="app_name">Hoard</string>
+    <string name="title_activity_main">Hoard</string>
     <string name="package_name">br.com.hoard</string>
     <string name="custom_url_scheme">br.com.hoard</string>
 </resources>
