@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="main">
+    <ion-back-button slot="start" color="light"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+  <h1>Tipos de reservas financeira</h1>
+
+  <div *ngFor="let item of contents">
+    <ion-img [src]="item.image"></ion-img>
+    <h3>{{item.title}}</h3>
+
+    <ion-text>
+      <p>
+        {{item.content}}
+      </p>
+    </ion-text>
+  </div>
+ 
+</ion-content>

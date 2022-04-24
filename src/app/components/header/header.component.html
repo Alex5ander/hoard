@@ -1,14 +1,14 @@
-<ion-menu side="start" menuId="first" contentId="main-menu">
+<ion-menu side="start" menuId="first" contentId="main-menu" color="main">
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color="main">
       <ion-title>Hoard</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
-    <ion-list lines="none">
+  <ion-content color="main">
+    <ion-list lines="none" class="ion-no-padding">
 
-      <ion-item *ngFor="let menuItem of menuItems" lines="none" button>
+      <ion-item *ngFor="let menuItem of menuItems" lines="none" button color="main">
         <ion-icon [name]="menuItem.icon" color="light" slot="start"></ion-icon> 
         <ion-label>{{menuItem.text}}</ion-label>
         <ion-icon  name="chevron-forward-outline" color="light"></ion-icon>
@@ -19,9 +19,9 @@
 </ion-menu>
 
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="main">
     <ion-menu-button slot="start" id="main-menu" color="light"></ion-menu-button>
-    <ion-button slot="end">
+    <ion-button slot="end" color="main">
       <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
