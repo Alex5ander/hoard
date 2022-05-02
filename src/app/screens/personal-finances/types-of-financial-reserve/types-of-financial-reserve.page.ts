@@ -26,9 +26,22 @@ export class TypesOfFinancialReservePage implements OnInit {
         'É um meio de proteção contra crises, ou seja seu dinheiro não corre o risco de desvalorizar com o tempo, para isso você precisa criar uma reserva que consiste em ativos, como ouro, criptomoedas e imóveis.'
     },
   ];
+
+  index = 0;
+
   constructor() { }
 
   ngOnInit() {
+  }
+  previous() {
+    if(this.index > 0) {
+      this.index -= 1;
+    }
+  }
+  next() {
+    if(this.index < this.contents.length -1) {
+      this.index += 1;
+    }
   }
 
 }

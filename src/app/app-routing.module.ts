@@ -19,6 +19,18 @@ const routes: Routes = [
     path: 'personal-finances',
     loadChildren: () => import('./screens/personal-finances/personal-finances.module').then(m => m.PersonalFinancesPageModule)
   },
+  {
+    path: 'simple-interest',
+    loadChildren: () => import('./screens/simple-interest/simple-interest.module').then( m => m.SimpleInterestPageModule)
+  },
+  {
+    path: 'simple-interest',
+    loadChildren:() => import('./screens/simple-interest/simple-interest.module').then(m => m.SimpleInterestPageModule),
+  },
+  {
+    path: 'compound-interest',
+    loadChildren: () => import('./screens/compound-interest/compound-interest.module').then( m => m.CompoundInterestPageModule)
+  }
 ];
 
 @NgModule({
