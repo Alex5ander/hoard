@@ -10,11 +10,11 @@ import { IonRouterOutlet, Platform } from '@ionic/angular';
 export class HomePage {
 
   constructor(private platform: Platform, private ionRouterOutlet: IonRouterOutlet) {
-    this.platform.backButton.subscribeWithPriority(-1, () => {
-      if(!this.ionRouterOutlet.canGoBack()) {
-        App.exitApp();
-      }
-    });
+    // this.platform.backButton.subscribeWithPriority(-1, () => {
+    //   if(!this.ionRouterOutlet.canGoBack()) {
+    //     App.exitApp();
+    //   }
+    // });
   }
 
 }
