@@ -1,37 +1,35 @@
 <ion-header>
-  <ion-toolbar color="main">
-    <ion-back-button slot="start"></ion-back-button>
+  <ion-toolbar>
+    <ion-back-button color="main" slot="start"></ion-back-button>
   </ion-toolbar>
+  <ion-progress-bar [value]="(index + 1) / contents.length" color="main"></ion-progress-bar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h1 class="ion-text-center">Organização financeira</h1>
 
-  <p>
-    Você já foi ao supermercado e trouxe para a casa mais do que era necessário, 
-    ou comprou algo que não estava em seus planos, isso ocorre por falta de planejamento.
-  </p>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        {{ contents[index].title }}
+      </ion-card-title>
+    </ion-card-header>
 
-  <p>
-    Sempre que for fazer compras, liste aquilo que é 
-    realmente necessário comprar. E caso queira comprar algo que 
-    não está nessa lista faça as seguintes perguntas para si memso:
-  </p>
+    <ion-card-content>
+      <ion-img [src]="'assets/images/'+contents[index].imageUrl" ></ion-img>
+      <ion-text>
+        {{ contents[index].text }}
+      </ion-text>
 
-  <ion-list class="ion-no-padding border" lines="none">
-    <ion-item>
-      <ion-label>Eu tenho dinheiro para comprar</ion-label>
-      <ion-icon slot="end" name="help-outline"></ion-icon>
-    </ion-item>
-    
-    <ion-item>
-      <ion-label> Eu vou usar isso</ion-label>
-      <ion-icon slot="end" name="help-outline"></ion-icon>
-    </ion-item>
+      <ion-row class="ion-justify-content-between">
+        <ion-button color="red" expand="full" (click)="previous()" >
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+  
+        <ion-button color="green" expand="full" (click)="next()" [hidden]="index === contents.length -1"  >
+          <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+        </ion-button>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-item>
-      <ion-label>Eu realmente preciso disso</ion-label>
-      <ion-icon slot="end" name="help-outline"></ion-icon>
-    </ion-item>
-  </ion-list>
 </ion-content>

@@ -15,9 +15,7 @@
   <ion-list lines="none">
 
     <ion-item *ngFor="let item of items" lines="none" [routerLink]="item.routerLink" class="shadow ion-margin-vertical">
-      <ion-thumbnail slot="start">
-        <ion-img style="background-color: gray; width: 4rem; height: 4rem;"></ion-img>
-      </ion-thumbnail>
+      <ion-img [src]="'assets/images/'+item.imageUrl" slot="start" style="width: 30%;" ></ion-img>
 
       <ion-text size="small">
         <h6>{{item.title}}</h6>

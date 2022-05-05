@@ -6,5 +6,32 @@
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-content>
+    <form>
+      <ion-item>
+        <ion-label position="floating">Valor inicial</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
 
+      <ion-item>
+        <ion-label position="floating">Taxa de juros</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Período em</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+
+      <ion-select value="meses" >
+        <ion-select-option value="meses" >meses</ion-select-option>
+        <ion-select-option value="anos" >anos</ion-select-option>
+      </ion-select>
+
+      <ion-button color="red" expand="block" type="reset">Limpar</ion-button>
+      <ion-button color="green" expand="block" type="button">Calcular</ion-button>
+    </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -23,22 +23,6 @@ const routes: Routes = [
       },
     ],
   },
-  {
-    path: 'simple-interest',
-    loadChildren: () => import('../simple-interest/simple-interest.module').then( m => m.SimpleInterestPageModule)
-  },
-  {
-    path: 'compound-interest',
-    loadChildren: () => import('../compound-interest/compound-interest.module').then( m => m.CompoundInterestPageModule)
-  },
-  {
-    path: 'exercises',
-    loadChildren: () => import('../exercises/exercises.module').then(m => m.ExercisesPageModule)
-  },
-  {
-    path: 'personal-finances',
-    loadChildren: () => import('../personal-finances/personal-finances.module').then(m => m.PersonalFinancesPageModule)
-  }
 ];
 
 @NgModule({

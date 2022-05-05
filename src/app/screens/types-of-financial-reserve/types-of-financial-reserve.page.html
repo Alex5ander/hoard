@@ -1,13 +1,12 @@
 <ion-header>
-  <ion-toolbar color="main">
-    <ion-back-button slot="start" color="light"></ion-back-button>
+  <ion-toolbar>
+    <ion-back-button slot="start" color="main"></ion-back-button>
     <ion-title>Tipos de reservas financeira</ion-title>
   </ion-toolbar>
+  <ion-progress-bar [value]="(index + 1) / contents.length" color="main"></ion-progress-bar>
 </ion-header>
 
 <ion-content class="ion-padding">
-
-  <ion-progress-bar [value]="index / contents.length" color="main"></ion-progress-bar>
 
   <ion-card>
     <ion-card-header>
@@ -27,12 +26,11 @@
           <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
         </ion-button>
   
-        <ion-button color="green" expand="full" (click)="next()" >
+        <ion-button color="green" expand="full" (click)="next()" [hidden]="index === contents.length -1" >
           <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
         </ion-button>
       </ion-row>
     </ion-card-content>
   </ion-card>
  
-  
 </ion-content>
