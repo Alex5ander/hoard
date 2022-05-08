@@ -34,7 +34,8 @@ export class PersonalFinancesPage implements OnInit {
     {
       title: 'Tipos de reservas',
       description: 'Aqui você vai conhecer alguns tipos de reservas financeiras, e para que elas devem ser usadas',
-      routerLink: 'types-of-financial-reserve'
+      routerLink: 'types-of-financial-reserve',
+      imageUrl: 'types-of-financial-reserve.png'
     },
   ];
 

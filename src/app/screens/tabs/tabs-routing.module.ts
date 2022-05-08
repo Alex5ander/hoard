@@ -5,24 +5,51 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'tabs',
     component: TabsPage,
     children: [
       {
         path: 'home',
-        loadChildren: () => import('../home/home.module').then(m => m.HomePageModule),
+        children:[
+          {
+            path: '',
+            loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
+          },
+          {
+            path: 'personal-finances',
+            loadChildren: () => import('../personal-finances/personal-finances.module').then(m => m.PersonalFinancesPageModule)
+          },
+          {
+            path: 'exercises',
+            loadChildren: () => import('../exercises/exercises.module').then(m => m.ExercisesPageModule)
+          },
+        ]
       },
       {
         path: 'calculators',
-        loadChildren: () => import('../calculators/calculators.module').then( m => m.CalculatorsPageModule)
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../calculators/calculators.module').then(m => m.CalculatorsPageModule)
+          },
+          {
+            path: 'simple-interest',
+            loadChildren: () => import('../simple-interest/simple-interest.module').then(m => m.SimpleInterestPageModule)
+          }
+        ]
       },
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: '/tabs/home',
         pathMatch: 'full'
       },
     ],
   },
+  {
+    path: '',
+    redirectTo: '/tabs/home',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
