@@ -29,7 +29,8 @@ export class PersonalFinancesPage implements OnInit {
     {
       title: 'Regra 50-30-20',
       description: 'Aqui você você vai conhecer um metódo para organizar seu orçamento',
-      routerLink: 'rule-fifty-thirty-twenty'
+      routerLink: 'rule-fifty-thirty-twenty',
+      imageUrl: 'rule-fifty-thirty-twenty.png',
     },
     {
       title: 'Tipos de reservas',
