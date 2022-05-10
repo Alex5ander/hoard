@@ -17,8 +17,8 @@ export class PersonalFinancesPage implements OnInit {
     {
       title: 'Erros de finanças',
       description: 'Conheça os erros mais comuns, ao gerenciar o dinheiro, e como podem ser evitados',
-      routerLink: '#',
-      imageUrl: 'finance-errors.png'
+      routerLink: 'finance-mistakes',
+      imageUrl: 'finance-mistakes.png'
     },
     {
       title: 'Organização financeira',

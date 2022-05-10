@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'types-of-financial-reserve',
     loadChildren: () => import('../types-of-financial-reserve/types-of-financial-reserve.module').then(m => m.TypesOfFinancialReservePageModule)
+  },
+  {
+    path: 'finance-mistakes',
+    loadChildren: () => import('../finance-mistakes/finance-mistakes-routing.module').then(m => m.FinanceMistakesPageRoutingModule)
   }
 ];
 
