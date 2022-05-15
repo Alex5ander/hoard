@@ -7,10 +7,6 @@ const routes: Routes = [
   {
     path: '',
     component: CalculatorsPage
-  },
-  {
-    path: 'simple-interest',
-    loadChildren: () => import('../simple-interest/simple-interest.module').then(m => m.SimpleInterestPageModule)
   }
 ];
 

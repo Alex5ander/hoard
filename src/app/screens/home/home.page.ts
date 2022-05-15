@@ -12,7 +12,10 @@ export class HomePage {
   constructor(private platform: Platform, private ionRouterOutlet: IonRouterOutlet) {
     this.platform.backButton.subscribeWithPriority(-1, () => {
       if(this.ionRouterOutlet.activatedView.stackId === 'home' && !this.ionRouterOutlet.canGoBack()) {
-        App.exitApp();
+        const closeApp = confirm('Deseja sair do aplicativo?');
+        if(closeApp) {
+          App.exitApp();
+        }
       }
     });
   }
