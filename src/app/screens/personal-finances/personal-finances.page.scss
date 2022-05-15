@@ -22,3 +22,11 @@ ion-backdrop {
 ion-button {
     height: 100%;
 }
+
+.image {
+    width: 30%;
+    aspect-ratio: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

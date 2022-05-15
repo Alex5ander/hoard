@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-back-button color="main" slot="start"></ion-back-button>
+    <ion-title>Organização financeira</ion-title>
   </ion-toolbar>
   <ion-progress-bar [value]="(index + 1) / contents.length" color="main"></ion-progress-bar>
 </ion-header>
@@ -19,17 +20,19 @@
       <ion-text>
         {{ contents[index].text }}
       </ion-text>
-
-      <ion-row class="ion-justify-content-between">
-        <ion-button color="red" expand="full" (click)="previous()" >
-          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-        </ion-button>
-  
-        <ion-button color="green" expand="full" (click)="next()" [hidden]="index === contents.length -1"  >
-          <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
-        </ion-button>
-      </ion-row>
     </ion-card-content>
   </ion-card>
 
 </ion-content>
+
+<ion-footer class="ion-padding">
+  <ion-row class="ion-justify-content-between">
+    <ion-button color="red" expand="full" (click)="previous()" >
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+
+    <ion-button color="green" expand="full" (click)="next()" [hidden]="index === contents.length -1"  >
+      <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+    </ion-button>
+  </ion-row>
+</ion-footer>

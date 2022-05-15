@@ -15,7 +15,7 @@
   <ion-list lines="none">
 
     <ion-item *ngFor="let item of items" lines="none" [routerLink]="item.routerLink" class="shadow ion-margin-vertical">
-      <ion-img [src]="'assets/images/'+item.imageUrl" slot="start" style="width: 30%;" ></ion-img>
+      <div slot="start" class="image" [style]="'background-image: url(/assets/images/'+item.imageUrl+')'" ></div>
 
       <ion-text size="small">
         <h6>{{item.title}}</h6>

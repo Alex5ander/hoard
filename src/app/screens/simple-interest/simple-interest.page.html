@@ -5,27 +5,55 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+  <ion-accordion-group>
+    <ion-accordion toggle-icon="chevron-down" class="border ion-margin-vertical">
+      <ion-item slot="header">
+        <ion-label class="ion-text-wrap">O que é juros simples?</ion-label>
+      </ion-item>
+
+      <ion-item slot="content">
+        <ion-text>
+          <p>
+            Juros simples é a porcentagem de um valor chamado de capital inicial, essa porcentagem é aplicado ao capital inicial durante determindao tempo.
+          </p>
+          
+          <strong>Exemplos onde é aplicado juros simples.</strong>
+          <p>Compra de algo parcelado.</p>
+          <p>Empréstimos.</p>
+
+          <strong>Fórmula do juros simples</strong>
+          <p><strong>J = C · I · T</strong></p>
+          <p><strong>J</strong> = Juros</p>
+          <p><strong>C</strong> = capital</p>
+          <p><strong>I</strong> = taxa de juros</p>
+          <p><strong>T</strong> = tempo</p>
+        </ion-text>
+      </ion-item>
+    </ion-accordion>
+  </ion-accordion-group>
+
   <ion-card class="ion-card-rounded">
     <ion-card-content>
     <form [formGroup]="form" (ngSubmit)="calculate()">
       <ion-item>
         <ion-label position="floating">Valor inicial</ion-label>
-        <ion-input formControlName="initialValue" type="number" placeholder="0" ></ion-input>
+        <ion-input autocomplete="off" formControlName="initialValue" type="number" placeholder="R$ 0,00" ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="floating">Taxa de juros</ion-label>
-        <ion-input formControlName="interestRates" type="number" placeholder="0"></ion-input>
+        <ion-input autocomplete="off" formControlName="interestRates" type="number" placeholder="0%"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="floating">Período em meses</ion-label>
-        <ion-input formControlName="timeCourse" type="number" placeholder="0"></ion-input>
+        <ion-input autocomplete="off" formControlName="timeCourse" type="number" placeholder="0"></ion-input>
       </ion-item>
 
       <ion-button color="red" expand="block" type="reset">Limpar</ion-button>
-      <ion-button color="green" expand="block" type="submit" [disabled]="form.invalid" >Calcular</ion-button>
+      <ion-button color="green" expand="block" type="submit" [disabled]="form.invalid" >Calcular juros simples</ion-button>
     </form>
     </ion-card-content>
   </ion-card>

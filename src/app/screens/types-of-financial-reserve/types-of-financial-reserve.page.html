@@ -11,7 +11,7 @@
   <ion-card>
     <ion-card-header>
       <ion-img [src]="contents[index].image"></ion-img>
-      <h3>{{contents[index].title}}</h3>
+      <ion-card-title>{{contents[index].title}}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
@@ -20,17 +20,19 @@
           {{contents[index].content}}
         </p>
       </ion-text>
-
-      <ion-row class="ion-justify-content-between">
-        <ion-button color="red" expand="full" (click)="previous()" >
-          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-        </ion-button>
-  
-        <ion-button color="green" expand="full" (click)="next()" [hidden]="index === contents.length -1" >
-          <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
-        </ion-button>
-      </ion-row>
     </ion-card-content>
   </ion-card>
  
 </ion-content>
+
+<ion-footer class="ion-padding">
+  <ion-row class="ion-justify-content-between">
+    <ion-button color="red" expand="full" (click)="previous()" >
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+
+    <ion-button color="green" expand="full" (click)="next()" [hidden]="index === contents.length -1" >
+      <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+    </ion-button>
+  </ion-row>
+</ion-footer>

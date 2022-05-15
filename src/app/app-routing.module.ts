@@ -26,7 +26,6 @@ const routes: Routes = [
     path: 'finance-mistakes',
     loadChildren: () => import('./screens/finance-mistakes/finance-mistakes.module').then( m => m.FinanceMistakesPageModule)
   },
-
 ];
 
 @NgModule({
