@@ -7,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RuleFiftyThirtyTwentyPage implements OnInit {
 
-  accordions = [
+  contents = [
+    {
+      title:'Regra 50 30 20',
+      text: 'Regra 50 30 20 é um metódo para organizar seu orçamento. Dividindo seu dinheiro em três',
+      content: []
+    },
     {
       title: '50% gastos essenciais.',
-      name: 'home-outline',
       content: [
         'Alimentação',
         'Conta de água',
@@ -24,18 +28,17 @@ export class RuleFiftyThirtyTwentyPage implements OnInit {
     },
     {
       title: '30% lazer e atividades extracurriculares.',
-      name: 'cart-outline',
       content: [
         'Viagens',
         'Compras de produtos não essenciais',
         'Restaurante',
         'Cinema',
-        'Serviços de streaming ou TV por assinatura'
+        'Serviços de streaming',
+        ' TV por assinatura'
       ]
     },
     {
       title: '20% metas financeiras dividas, investimentos, ou apenas guardar.',
-      name: 'cash-outline',
       content: [
         'Imprevistos',
         'Contas em atraso',
@@ -46,9 +49,21 @@ export class RuleFiftyThirtyTwentyPage implements OnInit {
     }
   ];
 
+  index = 0;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  next() {
+    if(this.index < this.contents.length - 1) {
+      this.index += 1;
+    }
+  }
+  previous() {
+    if(this.index > 0) {
+      this.index -= 1;
+    }
+  }
 }

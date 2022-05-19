@@ -26,6 +26,14 @@ const routes: Routes = [
     path: 'finance-mistakes',
     loadChildren: () => import('./screens/finance-mistakes/finance-mistakes.module').then( m => m.FinanceMistakesPageModule)
   },
+  {
+    path: 'memory-game',
+    loadChildren: () => import('./screens/memory-game/memory-game.module').then( m => m.MemoryGamePageModule)
+  },  {
+    path: 'hunting-words',
+    loadChildren: () => import('./screens/hunting-words/hunting-words.module').then( m => m.HuntingWordsPageModule)
+  }
+
 ];
 
 @NgModule({

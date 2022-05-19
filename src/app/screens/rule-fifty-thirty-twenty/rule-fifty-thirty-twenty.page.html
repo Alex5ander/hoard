@@ -1,31 +1,52 @@
 <ion-header>
-  <ion-toolbar color="main">
-    <ion-back-button slot="start"></ion-back-button>
+  <ion-toolbar >
+    <ion-back-button slot="start" color="main"></ion-back-button>
+    <ion-progress-bar color="main" [value]="(index + 1) / contents.length"></ion-progress-bar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h1 class="ion-text-center">Regra 50 30 20</h1>
-  <p>Regra 50 30 20 é um metódo para organizar seu orçamento.</p>
 
-  <p>Dividindo seu dinheiro da seguinte maneira</p>
+  <ion-card *ngIf="index === 0">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">{{ contents[index].title }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-text>
+        <p>
+          {{ contents[index].text }}
+        </p>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card *ngIf="index > 0">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">{{ contents[index].title }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-text>
+        <p *ngFor="let item of contents[index].content" >
+          {{ item }}
+        </p>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
 
-  <ion-accordion-group>
-    <ion-accordion toggle-icon="chevron-down" *ngFor="let item of accordions" class="border ion-margin-vertical">
-
-      <ion-item slot="header" lines="none">
-        <ion-icon slot="start" [name]="item.name" ></ion-icon>
-        <ion-label class="ion-text-wrap">{{item.title}}</ion-label>
-      </ion-item>
-
-      <ion-list slot="content">
-
-        <ion-item *ngFor="let content of item.content">
-          <ion-label >{{content}}</ion-label>
-        </ion-item>
-        
-      </ion-list>
-
-    </ion-accordion>
-  </ion-accordion-group>
 </ion-content>
+
+<ion-footer class="ion-padding">
+  <ion-toolbar>
+    <ion-row class="ion-justify-content-between">
+      <ion-button color="red" expand="full" (click)="previous()" >
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+
+      <ion-button color="green" expand="full" (click)="next()" [hidden]="index === contents.length -1"  >
+        <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
