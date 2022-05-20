@@ -1,5 +1,18 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-back-button color="main" slot="start"></ion-back-button>
+    </ion-toolbar>
+</ion-header>
 <ion-content [fullscreen] >
-    <div class="cards">
-
-    </div>
+    <ion-grid>
+        <ion-row class="ion-wrap ion-justify-content-center" >
+            <ion-col size="6" *ngFor="let card of cards" (click)="onCardPress(card)" >
+                <div class="card" [ngClass]="card.status" >
+                    <p>{{ card.description }}</p>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
+
+

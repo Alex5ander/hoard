@@ -1,11 +1,18 @@
-.cards {
-
-}
-
 .card {
-
+    flex: 1;
+    text-align: center;
+    border: 1px solid;
+    padding: 25% 0px;
 }
 
-.card-text {
+.card.open {
+    background-color: red;
+}
 
+.card.close {
+    background-color: black;
+}
+
+.card.answered {
+    background-color: green;
 }
