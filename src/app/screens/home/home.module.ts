@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { CategoriesComponent } from 'src/app/components/categories/categories.component';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 
 
@@ -16,6 +15,6 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, CategoriesComponent, HeaderComponent]
+  declarations: [HomePage, HeaderComponent]
 })
 export class HomePageModule { }

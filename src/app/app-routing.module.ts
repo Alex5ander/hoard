@@ -15,10 +15,6 @@ const routes: Routes = [
     loadChildren: () => import('./screens/simple-interest/simple-interest.module').then(m => m.SimpleInterestPageModule)
   },
   {
-    path: 'personal-finances',
-    loadChildren: () => import('./screens/personal-finances/personal-finances.module').then(m => m.PersonalFinancesPageModule)
-  },
-  {
     path: 'memory-game',
     loadChildren: () => import('./screens/memory-game/memory-game.module').then( m => m.MemoryGamePageModule)
   },
