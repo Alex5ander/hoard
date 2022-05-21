@@ -19,10 +19,17 @@ const routes: Routes = [
     loadChildren: () => import('./screens/memory-game/memory-game.module').then( m => m.MemoryGamePageModule)
   },
   {
-    path: 'hunting-words',
-    loadChildren: () => import('./screens/hunting-words/hunting-words.module').then( m => m.HuntingWordsPageModule)
+    path: 'rule-fifty-thirty-twenty',
+    loadChildren: () => import('./screens/rule-fifty-thirty-twenty/rule-fifty-thirty-twenty.module').then(e => e.RuleFiftyThirtyTwentyPageModule)
+  },
+  {
+    path: 'financial-organization',
+    loadChildren: () => import('./screens/financial-organization/financial-organization.module').then(e => e.FinancialOrganizationPageModule)
+  },
+  {
+    path: 'types-of-financial-reserve',
+    loadChildren: () => import('./screens/types-of-financial-reserve/types-of-financial-reserve.module').then(e => e.TypesOfFinancialReservePageModule)
   }
-
 ];
 
 @NgModule({

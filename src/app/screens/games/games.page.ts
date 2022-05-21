@@ -11,10 +11,6 @@ export class GamesPage implements OnInit {
     {
       title: 'Jogo da memória financeira',
       routerLink:'/memory-game',
-    },
-    {
-      title: 'Caça palavras',
-      routerLink:'/hunter-words',
     }
   ];
 

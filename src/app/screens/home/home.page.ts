@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { App } from '@capacitor/app';
-import { IonRouterOutlet, Platform } from '@ionic/angular';
+import { IonRouterOutlet, ModalController, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +10,6 @@ import { IonRouterOutlet, Platform } from '@ionic/angular';
 export class HomePage {
 
   items = [
-    {
-      title: 'Como identificar seu padrão de vida',
-      description: 'Saber o padrão de vida é um fator muito importante para vida financeira',
-      routerLink: 'life-standard',
-      imageUrl: 'life-standard.png',
-    },
     {
       title: 'Organização financeira',
       description: 'Como se organizar de forma simples para reduzir problemas financeiros',
@@ -36,13 +30,10 @@ export class HomePage {
     },
   ];
 
-  constructor(private platform: Platform, private ionRouterOutlet: IonRouterOutlet) {
+  constructor(private platform: Platform, private ionRouterOutlet: IonRouterOutlet, public modal: ModalController) {
     this.platform.backButton.subscribeWithPriority(-1, () => {
       if(this.ionRouterOutlet.activatedView.stackId === 'home' && !this.ionRouterOutlet.canGoBack()) {
-        const closeApp = confirm('Deseja sair do aplicativo?');
-        if(closeApp) {
-          App.exitApp();
-        }
+        App.exitApp();
       }
     });
   }
