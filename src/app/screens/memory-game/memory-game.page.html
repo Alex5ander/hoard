@@ -1,18 +1,42 @@
 <ion-header>
     <ion-toolbar>
         <ion-back-button color="main" slot="start"></ion-back-button>
+        <ion-title>Jogo da memória financeira</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen] >
     <ion-grid>
-        <ion-row class="ion-wrap ion-justify-content-center" >
-            <ion-col size="6" *ngFor="let card of cards" (click)="onCardPress(card)" >
-                <div class="card" [ngClass]="card.status" >
-                    <p>{{ card.description }}</p>
+        <ion-row class="ion-wrap ion-justify-content-center" *ngFor="let card of cards" >
+           <ion-col (click)="onWordPress(card[0])">
+               
+               <div class="card" [ngClass]="card[0].status">
+
+                    <div class="card-block card-front">
+                        <ion-label>{{ card[0].text }}</ion-label>
+                    </div>
+
+                    <div class="card-block card-back">
+                        ?
+                    </div>
                 </div>
+               
+           </ion-col>
+
+           <ion-col (click)="onAnswerPress(card[1])">
+               
+            <div class="card" [ngClass]="card[1].status">
+
+                <div class="card-block card-front">
+                    <ion-label>{{ card[1].text }}</ion-label>
+                </div>
+
+                <div class="card-block card-back">
+                    ?
+                </div>
+            </div>
+
             </ion-col>
         </ion-row>
     </ion-grid>
 </ion-content>
-
 

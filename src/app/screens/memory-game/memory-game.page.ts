@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ModalConfirmComponent } from 'src/app/screens/memory-game/modal-confirm/modal-confirm.component';
 
 @Component({
   selector: 'app-memory-game',
@@ -7,93 +9,112 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MemoryGamePage implements OnInit {
 
-  cards = [
+  words = [
     {
-      type: 'word',
-      description: 'Text',
+      text: 'Amealhar',
       status:'close',
       id: 0,
     },
     {
-      type: 'answer',
-      description: 'Text',
-      status:'close',
-      id: 0,
-    },
-    {
-      type: 'word',
-      description: 'Text',
+      text: 'Financeiro',
       status:'close',
       id: 1,
     },
     {
-      type: 'answer',
-      description: 'Text',
-      status:'close',
-      id: 1,
-    },
-    {
-      type: 'word',
-      description: 'Text',
+      text: 'Reserva de oportunidades',
       status:'close',
       id: 2,
     },
     {
-      type: 'answer',
-      description: 'Text',
-      status:'close',
-      id: 2,
-    },
-    {
-      type: 'word',
-      description: 'Text',
-      status:'close',
-      id: 3,
-    },
-    {
-      type: 'answer',
-      description: 'Text',
+      text: 'Ativos',
       status:'close',
       id: 3,
     }
   ];
 
-  constructor() { }
+  answers = [
+    {
+      text: 'Guardar, juntar ou poupar dinheiro',
+      status:'close',
+      id: 0,
+    },
+    {
+      text: 'Especialista em finanças',
+      status:'close',
+      id: 1,
+    },
+    {
+      text: 'Valor reservado para aproveitar momentos oportunos',
+      status:'close',
+      id: 2,
+    },
+    {
+      text: 'Aquilo que pode ser convertido em dinheiro',
+      status:'close',
+      id: 3,
+    }
+  ];
+
+  cards = [];
+  word = null;
+  answer = null;
+  targets = 0;
+  errors = 0;
+
+  constructor(private modal: ModalController) {}
 
   ngOnInit() {
-    this.cards = this.cards.sort(() => Math.floor(Math.random() * 100) > 50 ? 1 : -1);
+    this.words = this.words.sort(() => Math.floor(Math.random() * 100) > 50 ? 1 : -1);
+    this.answers = this.answers.sort(() => Math.floor(Math.random() * 100) > 50 ? 1 : -1);
+
+    for(let i = 0; i < this.words.length; i++) {
+      this.cards[i] = [ this.words[i], this.answers[i] ];
+    }
   }
 
-  onCardPress(card) {
-    console.log(card);
-    const opens = this.cards.filter(e => e.status === 'open');
-    const amountOpen = opens.length;
-    if(amountOpen === 0) {
+  onWordPress(card) {
+    if(!this.word && card.status === 'close') {
       card.status = 'open';
+      this.word = card;
     }
 
-    if(amountOpen === 1) {
+    this.checkSelectedCards();
+  }
+
+  onAnswerPress(card) {
+    if(!this.answer && card.status === 'close') {
       card.status = 'open';
+      this.answer = card;
+    }
 
-      setTimeout(() => {
+    this.checkSelectedCards();
+  }
 
-        const answer = confirm('As cartas a seguir formam par?');
-
-      const first = opens[0];
-      const second = card;
-
-      const even = first.id === second.id;
-
-      if(even === answer) {
-        first.status ='answered';
-        second.status ='answered';
+  async checkSelectedCards() {
+    if(this.answer && this.word) {
+      const modal = await this.modal.create({
+        component: ModalConfirmComponent,
+        componentProps: {
+          word: this.word,
+          answer: this.answer,
+        }
+      });
+      setTimeout(() => modal.present(), 500);
+      const data = await (await modal.onDidDismiss()).data;
+      if(data.correct) {
+        this.word.status = 'open correct';
+        this.answer.status = 'open correct';
+        this.targets += 1;
       }else {
-        first.status = 'close';
-        second.status = 'close';
+        this.word.status = 'close';
+        this.answer.status = 'close';
+        this.errors += 1;
       }
+      this.answer = null;
+      this.word = null;
 
-      }, 1000);
+      const endgame = this.cards.every(card => card.status === 'open correct');
+      if(endgame) {}
     }
   }
-
 }

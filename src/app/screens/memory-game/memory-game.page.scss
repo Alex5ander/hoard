@@ -1,18 +1,45 @@
 .card {
-    flex: 1;
+    perspective: 100px;
+    position: relative;
+    min-height: 100px; 
+    transform-style: preserve-3d;
+    transition: transform .3s ease-in-out;
+}
+
+.card-block {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
     text-align: center;
     border: 1px solid;
-    padding: 25% 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    backface-visibility: hidden;
+    padding: 1rem;
+}
+
+.card-front {
+    transform: rotateY(180deg);
+    background-color: #8EDCE6;
+}
+
+.card-back {
+    transform: rotateY(0deg);
+    background-color: #E0FF4F;
+    font-size: 4rem;
 }
 
 .card.open {
-    background-color: red;
+    transform: rotateY(-180deg);
 }
 
 .card.close {
-    background-color: black;
+    transform: rotateY(0deg);
 }
 
-.card.answered {
-    background-color: green;
+.card.correct {
+  
 }

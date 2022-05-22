@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { MemoryGamePageRoutingModule } from './memory-game-routing.module';
 
 import { MemoryGamePage } from './memory-game.page';
+import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { MemoryGamePage } from './memory-game.page';
     IonicModule,
     MemoryGamePageRoutingModule
   ],
-  declarations: [MemoryGamePage]
+  declarations: [MemoryGamePage, ModalConfirmComponent]
 })
 export class MemoryGamePageModule {}
