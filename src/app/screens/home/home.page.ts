@@ -11,12 +11,6 @@ export class HomePage {
 
   items = [
     {
-      title: 'O que é educação financeira',
-      description: 'Conheça o que é educação financeira e sua importancia',
-      routerLink: '',
-      imageUrl: 'financial-organization.png'
-    },
-    {
       title: 'Organização financeira',
       description: 'Como se organizar de forma simples para reduzir problemas financeiros',
       routerLink: 'financial-organization',

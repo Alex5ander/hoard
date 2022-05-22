@@ -33,11 +33,11 @@
   <ion-card class="ion-card-rounded">
     <ion-card-content>
     <form [formGroup]="form" (ngSubmit)="calculate()">
-      <ion-item lines="none" class="ion-margin-vertical">
+      <ion-item class="ion-margin-vertical">
         <ion-input autocomplete="off" formControlName="initialValue" type="number" placeholder="R$ 0,00" ></ion-input>
       </ion-item>
 
-      <ion-item lines="none" class="ion-margin-vertical">
+      <ion-item class="ion-margin-vertical">
         <ion-input autocomplete="off" formControlName="interestRates" type="number" placeholder="0%"></ion-input>
 
         <ion-select value="0" formControlName="interestPeriodType">
@@ -46,7 +46,7 @@
         </ion-select>
       </ion-item>
 
-      <ion-item lines="none" class="ion-margin-vertical">
+      <ion-item class="ion-margin-vertical">
         <ion-input autocomplete="off" formControlName="timeCourse" type="number" placeholder="0"></ion-input>
         
         <ion-select value="0" formControlName="timeCourseType">

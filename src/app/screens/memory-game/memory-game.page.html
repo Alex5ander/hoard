@@ -6,33 +6,46 @@
 </ion-header>
 <ion-content [fullscreen] >
     <ion-grid>
+        <ion-row>
+            <ion-col class="ion-text-center">
+                <ion-label>Palavras</ion-label>
+            </ion-col>
+
+            <ion-col class="ion-text-center">
+                <ion-label>Significado</ion-label>
+            </ion-col>
+        </ion-row>
         <ion-row class="ion-wrap ion-justify-content-center" *ngFor="let card of cards" >
            <ion-col (click)="onWordPress(card[0])">
                
-               <div class="card" [ngClass]="card[0].status">
+               <div class="card ion-activatable ripple-parent" [ngClass]="card[0].status">
 
                     <div class="card-block card-front">
                         <ion-label>{{ card[0].text }}</ion-label>
                     </div>
 
                     <div class="card-block card-back">
-                        ?
+                        <ion-icon name="help-outline" color="main" ></ion-icon>
                     </div>
+
+                    <ion-ripple-effect></ion-ripple-effect>
                 </div>
                
            </ion-col>
 
            <ion-col (click)="onAnswerPress(card[1])">
                
-            <div class="card" [ngClass]="card[1].status">
+            <div class="card ion-activatable ripple-parent" [ngClass]="card[1].status">
 
                 <div class="card-block card-front">
                     <ion-label>{{ card[1].text }}</ion-label>
                 </div>
 
                 <div class="card-block card-back">
-                    ?
+                    <ion-icon name="help-outline" color="main" ></ion-icon>
                 </div>
+
+                <ion-ripple-effect></ion-ripple-effect>
             </div>
 
             </ion-col>

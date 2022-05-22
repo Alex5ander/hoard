@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalConfirmComponent } from 'src/app/screens/memory-game/modal-confirm/modal-confirm.component';
+import { ModalResultComponent } from './modal-result/modal-result.component';
 
 @Component({
   selector: 'app-memory-game',
@@ -12,22 +13,22 @@ export class MemoryGamePage implements OnInit {
   words = [
     {
       text: 'Amealhar',
-      status:'close',
+      status:'open',
       id: 0,
     },
     {
       text: 'Financeiro',
-      status:'close',
+      status:'open',
       id: 1,
     },
     {
       text: 'Reserva de oportunidades',
-      status:'close',
+      status:'open',
       id: 2,
     },
     {
       text: 'Ativos',
-      status:'close',
+      status:'open',
       id: 3,
     }
   ];
@@ -35,22 +36,22 @@ export class MemoryGamePage implements OnInit {
   answers = [
     {
       text: 'Guardar, juntar ou poupar dinheiro',
-      status:'close',
+      status:'open',
       id: 0,
     },
     {
       text: 'Especialista em finanças',
-      status:'close',
+      status:'open',
       id: 1,
     },
     {
       text: 'Valor reservado para aproveitar momentos oportunos',
-      status:'close',
+      status:'open',
       id: 2,
     },
     {
       text: 'Aquilo que pode ser convertido em dinheiro',
-      status:'close',
+      status:'open',
       id: 3,
     }
   ];
@@ -64,12 +65,24 @@ export class MemoryGamePage implements OnInit {
   constructor(private modal: ModalController) {}
 
   ngOnInit() {
-    this.words = this.words.sort(() => Math.floor(Math.random() * 100) > 50 ? 1 : -1);
-    this.answers = this.answers.sort(() => Math.floor(Math.random() * 100) > 50 ? 1 : -1);
+    this.shuffle();
+  }
+
+  shuffle() {
+    const wordsSort = this.words.sort(() => Math.floor(Math.random() * 100) > 50 ? 1 : -1);
+    const answersSort = this.answers.sort(() => Math.floor(Math.random() * 100) > 50 ? 1 : -1);
 
     for(let i = 0; i < this.words.length; i++) {
-      this.cards[i] = [ this.words[i], this.answers[i] ];
+      this.cards[i] = [ wordsSort[i], answersSort[i] ];
     }
+
+    setTimeout(() => {
+      this.cards = this.cards.map(card => {
+        card[0].status = 'close';
+        card[1].status = 'close';
+        return card;
+      });
+    } , 5000);
   }
 
   onWordPress(card) {
@@ -90,31 +103,57 @@ export class MemoryGamePage implements OnInit {
     this.checkSelectedCards();
   }
 
+  correct() {
+    this.word.status = 'correct';
+    this.answer.status = 'correct';
+    this.targets += 1;
+  }
+
+  wrong() {
+    this.word.status = 'close';
+    this.answer.status = 'close';
+    this.errors += 1;
+  }
+
   async checkSelectedCards() {
     if(this.answer && this.word) {
-      const modal = await this.modal.create({
+      const modalConfirm = await this.modal.create({
         component: ModalConfirmComponent,
         componentProps: {
           word: this.word,
           answer: this.answer,
         }
       });
-      setTimeout(() => modal.present(), 500);
-      const data = await (await modal.onDidDismiss()).data;
-      if(data.correct) {
-        this.word.status = 'open correct';
-        this.answer.status = 'open correct';
-        this.targets += 1;
+      setTimeout(() => modalConfirm.present(), 500);
+      const pair = this.word.id === this.answer.id;
+      const data = await (await modalConfirm.onDidDismiss()).data;
+      if(data) {
+       if(data.is && pair) {
+         this.correct();
+       }else if(data.is !== pair) {
+         this.wrong();
+       }else {
+        this.wrong();
+       }
       }else {
         this.word.status = 'close';
         this.answer.status = 'close';
-        this.errors += 1;
+        this.shuffle();
       }
       this.answer = null;
       this.word = null;
 
-      const endgame = this.cards.every(card => card.status === 'open correct');
-      if(endgame) {}
+      const endgame = this.cards.every(card => card[0].status === 'correct' && card[1].status === 'correct');
+      if(endgame) {
+        const modalResult = await this.modal.create({
+          component: ModalResultComponent,
+          componentProps: {
+            targets: this.targets,
+            errors: this.errors
+          }
+        });
+        modalResult.present();
+      }
     }
   }
 }

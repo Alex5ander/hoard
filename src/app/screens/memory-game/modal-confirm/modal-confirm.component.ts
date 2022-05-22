@@ -20,12 +20,7 @@ export class ModalConfirmComponent implements OnInit {
   }
 
   is(bool: boolean) {
-    const result = this.answer.id === this.word.id;
-    if(result === bool) {
-      this.modal.dismiss({ correct: true });
-    }else {
-      this.modal.dismiss({ correct: false });
-    }
+    this.modal.dismiss({ is: bool });
   }
 
 }

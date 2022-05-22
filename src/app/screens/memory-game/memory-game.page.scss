@@ -1,9 +1,9 @@
 .card {
     perspective: 100px;
     position: relative;
-    min-height: 100px; 
     transform-style: preserve-3d;
     transition: transform .3s ease-in-out;
+    aspect-ratio: 1;
 }
 
 .card-block {
@@ -41,5 +41,8 @@
 }
 
 .card.correct {
-  
+    transform: rotateY(-180deg);
+}
+.card.correct .card-front {
+    background-color: #2E933C;
 }
