@@ -38,7 +38,7 @@ export class SimpleInterestPage implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit() {
-    console.log(this.canvas);
+    
   }
   
   calculate() {
