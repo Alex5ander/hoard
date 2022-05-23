@@ -33,27 +33,35 @@
   <ion-card class="ion-card-rounded">
     <ion-card-content>
     <form [formGroup]="form" (ngSubmit)="calculate()">
-      <ion-item class="ion-margin-vertical">
-        <ion-input autocomplete="off" formControlName="initialValue" type="number" placeholder="R$ 0,00" ></ion-input>
-      </ion-item>
 
-      <ion-item class="ion-margin-vertical">
-        <ion-input autocomplete="off" formControlName="interestRates" type="number" placeholder="0%"></ion-input>
+      <div class="form-group">
+        <label>Valor inicial</label>
+        <input autocomplete="off" formControlName="initialValue" type="number" placeholder="R$ 0,00" />
+      </div>
 
-        <ion-select value="0" formControlName="interestPeriodType">
-          <ion-select-option value="0">Mensal</ion-select-option>
-          <ion-select-option value="1">Anual</ion-select-option>
-        </ion-select>
-      </ion-item>
+      <div class="form-group">
+        <label>Taxa de juros</label>
+        <div class="form-group-controls">
+          <input autocomplete="off" formControlName="interestRates" type="number" placeholder="0%" />
 
-      <ion-item class="ion-margin-vertical">
-        <ion-input autocomplete="off" formControlName="timeCourse" type="number" placeholder="0"></ion-input>
-        
-        <ion-select value="0" formControlName="timeCourseType">
-          <ion-select-option value="0">Meses</ion-select-option>
-          <ion-select-option value="1">Anos</ion-select-option>
-        </ion-select>
-      </ion-item>
+          <ion-select value="0" formControlName="interestPeriodType">
+            <ion-select-option value="0">Mensal</ion-select-option>
+            <ion-select-option value="1">Anual</ion-select-option>
+          </ion-select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Período</label>
+        <div class="form-group-controls">
+          <input autocomplete="off" formControlName="timeCourse" type="number" placeholder="0" />
+
+          <ion-select value="0" formControlName="timeCourseType">
+            <ion-select-option value="0">Meses</ion-select-option>
+            <ion-select-option value="1">Anos</ion-select-option>
+          </ion-select>
+        </div>
+      </div>
 
       <ion-button class="ion-margin-vertical" color="red" expand="block" type="reset">Limpar</ion-button>
       <ion-button color="green" expand="block" type="submit" [disabled]="form.invalid" >Calcular</ion-button>

@@ -40,7 +40,7 @@ export class SimpleInterestPage implements AfterViewInit {
 
   ngAfterViewInit() {
     this.chart = new Chart(this.canvas.nativeElement, {
-      type: 'bar',
+      type: 'pie',
       data: {
         labels: [],
         datasets: []
@@ -62,26 +62,13 @@ export class SimpleInterestPage implements AfterViewInit {
     this.results[1].value = initialValue + totalInterest;
     this.results[2].value = totalInterest;
     this.showResults = true;
-    const monthsLabel = [];
-    const values = [];
-    const fees = [];
-    for(let i = 0; i < timeCourse; i++) {
-      monthsLabel.push(i);
-      values.push(initialValue);
-      fees.push(initialValue * (interestRates / 100) * i);
-    }
+
     this.chart.data = {
-      labels: monthsLabel,
+      labels: ['Valor investido', 'Total em juros'],
       datasets: [
         {
-          label: 'Valor investido',
-          data: values,
-          backgroundColor: ['rgb(54, 162, 235)'],
-        },
-        {
-          label: 'Total em juros',
-          data: fees,
-          backgroundColor: ['rgb(54, 235, 162)'],
+          data: [initialValue, totalInterest],
+          backgroundColor: ['rgb(54, 162, 235)', 'rgb(54, 235, 162)'],
         }
       ]
     };

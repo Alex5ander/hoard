@@ -41,7 +41,7 @@ export class CompoundInterestPage implements AfterViewInit {
 
   ngAfterViewInit(){
     this.chart = new Chart(this.canvas.nativeElement, {
-      type: 'bar',
+      type: 'pie',
       data: {
         labels: [],
         datasets: []
@@ -80,33 +80,12 @@ export class CompoundInterestPage implements AfterViewInit {
     this.results[2].value = finalTotalValue - initialValue;
     this.showResults = true;
 
-    const monthsLabel = [];
-    const values = [];
-    const fees = [];
-    const period = timeCourseType === '0' ? timeCourse : timeCourse * 12;
-
-    for(let i = 0; i < period + 1; i++) {
-      monthsLabel.push(i);
-      values.push(initialValue.toFixed(2));
-
-      if(interestPeriodType === timeCourseType) {
-        fees.push(initialValue * Math.pow(1 + (interestRates / 100), i) - initialValue );
-      }else if(interestPeriodType !== timeCourseType) {
-        fees.push(i * ((finalTotalValue - initialValue) / period));
-      }
-    }
     this.chart.data = {
-      labels: monthsLabel,
+      labels: ['Valor investido', 'Total em juros'],
       datasets: [
         {
-          label: 'Valor investido',
-          data: values,
-          backgroundColor: ['rgb(54, 162, 235)'],
-        },
-        {
-          label: 'Total em juros',
-          data: fees,
-          backgroundColor: ['rgb(54, 235, 162)'],
+          data: [initialValue, totalInterest],
+          backgroundColor: ['rgb(54, 162, 235)', 'rgb(54, 235, 162)'],
         }
       ]
     };
