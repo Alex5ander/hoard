@@ -63,12 +63,16 @@ export class CompoundInterestPage implements AfterViewInit {
     if(interestPeriodType === timeCourseType) {
       interestPeriod = timeCourse;
     }else if(interestPeriodType === '1' && timeCourseType === '0') {
+      //meses para anos
       interestPeriod = timeCourse / 12;
     }else if(interestPeriodType === '0' && timeCourseType === '1') {
+      //anos para meses
       interestPeriod = timeCourse * 12;
     }
 
+    // taxas
     const totalInterest = Math.pow(1 + (interestRates / 100), interestPeriod);
+    //valor inicial com as taxas
     const finalTotalValue = initialValue * totalInterest;
 
     this.results[0].value = initialValue;
@@ -76,33 +80,19 @@ export class CompoundInterestPage implements AfterViewInit {
     this.results[2].value = finalTotalValue - initialValue;
     this.showResults = true;
 
-    const months = [
-      'Janeiro',
-      'Fevereiro',
-      'Março',
-      'Abril',
-      'Maio',
-      'Junho',
-      'Julho',
-      'Agosto',
-      'Setembro',
-      'Outubro',
-      'Novembro',
-      'Dezembro'
-    ];
     const monthsLabel = [];
     const values = [];
     const fees = [];
-    const m = timeCourseType === '0' ? timeCourse : timeCourse * 12;
-    console.log(m)
-    for(let i = 0; i < m; i++) {
-      monthsLabel.push(months[i % 12]);
+    const period = timeCourseType === '0' ? timeCourse : timeCourse * 12;
+
+    for(let i = 0; i < period + 1; i++) {
+      monthsLabel.push(i);
       values.push(initialValue.toFixed(2));
 
-      if(timeCourseType === '0') {
-        fees.push((initialValue * Math.pow(1 + (interestRates / 100), i+1) - initialValue).toFixed(2));
-      }else if(timeCourseType === '1') {
-        fees.push((totalInterest - totalInterest / (i+1)).toFixed(2));
+      if(interestPeriodType === timeCourseType) {
+        fees.push(initialValue * Math.pow(1 + (interestRates / 100), i) - initialValue );
+      }else if(interestPeriodType !== timeCourseType) {
+        fees.push(i * ((finalTotalValue - initialValue) / period));
       }
     }
     this.chart.data = {

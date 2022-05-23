@@ -1,8 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Resultado</ion-title>
+    <ion-title class="ion-text-center">Resultado</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  
+  <ion-text>
+    <p class="ion-text-center">Total de acertos: {{ targets }}</p>
+    <p class="ion-text-center">Total de erros: {{ errors }} </p>
+  </ion-text>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar class="ion-padding">
+    <ion-button color="main" expand="full" (click)="goHome()" >Tela inicial</ion-button>
+  </ion-toolbar>
+</ion-footer>

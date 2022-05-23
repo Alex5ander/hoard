@@ -62,25 +62,11 @@ export class SimpleInterestPage implements AfterViewInit {
     this.results[1].value = initialValue + totalInterest;
     this.results[2].value = totalInterest;
     this.showResults = true;
-    const months = [
-      'Janeiro',
-      'Fevereiro',
-      'Março',
-      'Abril',
-      'Maio',
-      'Junho',
-      'Julho',
-      'Agosto',
-      'Setembro',
-      'Outubro',
-      'Novembro',
-      'Dezembro'
-    ];
     const monthsLabel = [];
     const values = [];
     const fees = [];
     for(let i = 0; i < timeCourse; i++) {
-      monthsLabel.push(months[i % 12]);
+      monthsLabel.push(i);
       values.push(initialValue);
       fees.push(initialValue * (interestRates / 100) * i);
     }
