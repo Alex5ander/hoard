@@ -39,23 +39,23 @@
   <ion-card class="ion-card-rounded">
     <ion-card-content>
     <form [formGroup]="form" (ngSubmit)="calculate()">
-      <ion-item>
-        <ion-label position="floating">Valor inicial</ion-label>
-        <ion-input autocomplete="off" formControlName="initialValue" type="number" placeholder="R$ 0,00" ></ion-input>
-      </ion-item>
+      <div class="form-group">
+        <label>Valor inicial</label>
+        <input autocomplete="off" formControlName="initialValue" type="number" placeholder="R$ 0,00" />
+      </div>
 
-      <ion-item>
-        <ion-label position="floating">Taxa de juros</ion-label>
-        <ion-input autocomplete="off" formControlName="interestRates" type="number" placeholder="0%"></ion-input>
-      </ion-item>
+      <div class="form-group">
+        <label>Taxa de juros</label>
+        <input autocomplete="off" formControlName="interestRates" type="number" placeholder="0%"/>
+      </div>
 
-      <ion-item>
-        <ion-label position="floating">Período em meses</ion-label>
-        <ion-input autocomplete="off" formControlName="timeCourse" type="number" placeholder="0"></ion-input>
-      </ion-item>
+      <div class="form-group">
+        <label>Período em meses</label>
+        <input autocomplete="off" formControlName="timeCourse" type="number" placeholder="0"/>
+      </div>
 
       <ion-button color="red" expand="block" type="reset">Limpar</ion-button>
-      <ion-button color="green" expand="block" type="submit" [disabled]="form.invalid" >Calcular juros simples</ion-button>
+      <ion-button color="green" expand="block" type="submit" [disabled]="form.invalid" >Calcular</ion-button>
     </form>
     </ion-card-content>
   </ion-card>
@@ -63,7 +63,7 @@
   <ion-card [hidden]="!showResults"  *ngFor="let item of results" class="ion-margin-vertical">
     <ion-card-header class="ion-text-center">
       <ion-card-title>{{ item.title }}</ion-card-title>
-      <ion-card-subtitle>R$ {{ item.value.toFixed(2).replace('.', ',') }}</ion-card-subtitle>
+      <ion-card-subtitle>R$ {{ (item.value).toLocaleString('pt-BR') }}</ion-card-subtitle>
     </ion-card-header>
   </ion-card>
   

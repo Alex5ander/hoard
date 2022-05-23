@@ -18,15 +18,15 @@ export class SimpleInterestPage implements AfterViewInit {
   results = [
     {
       title: 'Valor investido',
-      value: 1,
+      value: 0,
     },
     {
       title: 'Valor final acumulado',
-      value: 1,
+      value: 0,
     },
     {
       title: 'Valor total em juros',
-      value: 1,
+      value: 0,
     }
   ];
 
@@ -35,12 +35,26 @@ export class SimpleInterestPage implements AfterViewInit {
   @ViewChild("chart") private  canvas: ElementRef;
   chart: Chart = null;
 
-  constructor() { }
+  constructor() {
+   }
 
   ngAfterViewInit() {
-    
+    this.chart = new Chart(this.canvas.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: [],
+        datasets: []
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: { stacked: true },
+          y: { stacked: true }
+        }
+      }
+    });
   }
-  
+
   calculate() {
     const { initialValue, interestRates, timeCourse } =  this.form.value;
     const totalInterest = initialValue * (interestRates / 100) * timeCourse;
@@ -70,34 +84,22 @@ export class SimpleInterestPage implements AfterViewInit {
       values.push(initialValue);
       fees.push(initialValue * (interestRates / 100) * i);
     }
-    this.chart = new Chart(this.canvas.nativeElement, {
-      type: 'bar',
-      data: {
-        labels: monthsLabel,
-        datasets: [
-          {
-            label: 'Valor investido',
-            data: values,
-            backgroundColor: ['rgb(54, 162, 235)'],
-          },
-          {
-            label: 'Total em juros',
-            data: fees,
-            backgroundColor: ['rgb(54, 235, 162)'],
-          }
-        ]
-      },
-      options:{
-        responsive: true,
-        scales: {
-          x: {
-            stacked: true,
-          },
-          y: {
-            stacked: true
-          }
+    this.chart.data = {
+      labels: monthsLabel,
+      datasets: [
+        {
+          label: 'Valor investido',
+          data: values,
+          backgroundColor: ['rgb(54, 162, 235)'],
+        },
+        {
+          label: 'Total em juros',
+          data: fees,
+          backgroundColor: ['rgb(54, 235, 162)'],
         }
-      }
-    });
+      ]
+    };
+
+    this.chart.update();
   }
 }

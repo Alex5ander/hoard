@@ -61,13 +61,15 @@
     </ion-card-content>
   </ion-card>
 
-  <slot *ngIf="showResults" >
-    <ion-card *ngFor="let item of results" class="ion-margin-vertical">
-      <ion-card-header class="ion-text-center">
-        <ion-card-title>{{ item.title }}</ion-card-title>
-        <ion-card-subtitle>R$ {{ item.value.toFixed(2).replace('.', ',') }}</ion-card-subtitle>
-      </ion-card-header>
-    </ion-card>
-  </slot>
+  <ion-card [hidden]="!showResults" *ngFor="let item of results" class="ion-margin-vertical">
+    <ion-card-header class="ion-text-center">
+      <ion-card-title>{{ item.title }}</ion-card-title>
+      <ion-card-subtitle>R$ {{ item.value.toFixed(2).replace('.', ',') }}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <div>
+    <canvas [hidden]="!showResults"  #chart ></canvas>
+  </div>
 
 </ion-content>
