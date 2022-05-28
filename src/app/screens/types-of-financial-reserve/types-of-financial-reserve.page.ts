@@ -25,6 +25,12 @@ export class TypesOfFinancialReservePage implements OnInit {
       content:
         'É um meio de proteção contra crises, ou seja seu dinheiro não corre o risco de desvalorizar com o tempo, para isso você precisa criar uma reserva que consiste em ativos, como ouro, criptomoedas e imóveis.'
     },
+    {
+
+      image: 'assets/images/staff-g.png',
+      title: 'Breve observação',
+      content: 'Ter uma reserva é importante, não só em casos de desemprego, mas também em caso de situações que muitas vezes não esperamos, e podemos ser pegos de surpresa, então por isso comece hoje usa reserva, de 1, 2 ou 4 meses dependendo de suas necessidades.',
+    }
   ];
 
   index = 0;
