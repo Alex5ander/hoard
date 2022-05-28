@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ModalConfirmComponent } from './modal-confirm.component';
+import { ExercisesPage } from './exercises.page';
 
-describe('ModalConfirmComponent', () => {
-  let component: ModalConfirmComponent;
-  let fixture: ComponentFixture<ModalConfirmComponent>;
+describe('ExercisesPage', () => {
+  let component: ExercisesPage;
+  let fixture: ComponentFixture<ExercisesPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalConfirmComponent ],
+      declarations: [ ExercisesPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ModalConfirmComponent);
+    fixture = TestBed.createComponent(ExercisesPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

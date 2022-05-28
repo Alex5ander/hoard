@@ -29,7 +29,7 @@ export class TypesOfFinancialReservePage implements OnInit {
 
       image: 'assets/images/staff-g.png',
       title: 'Breve observação',
-      content: 'Ter uma reserva é importante, não só em casos de desemprego, mas também em caso de situações que muitas vezes não esperamos, e podemos ser pegos de surpresa, então por isso comece hoje usa reserva, de 1, 2 ou 4 meses dependendo de suas necessidades.',
+      content: 'Ter alguma reserva é algo importante, não só em casos de desemprego, mas também em caso de situações que muitas vezes não esperamos, e podemos ser pegos de surpresa, então por isso comece hoje uma reserva, de 1, 2 ou 4 meses dependendo de suas necessidades.',
     }
   ];
 
