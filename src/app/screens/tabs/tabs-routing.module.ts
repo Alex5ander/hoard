@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: () => import('../exercises/exercises.module').then( m => m.ExercisesPageModule)
       },
       {
+        path: 'games',
+        loadChildren: () => import('../games/games.module').then( m => m.GamesPageModule)
+      },
+      {
         path: '',
         redirectTo: 'home',
         pathMatch: 'full'

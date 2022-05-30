@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { App } from '@capacitor/app';
 import { IonRouterOutlet, ModalController, Platform } from '@ionic/angular';
 
@@ -7,7 +8,7 @@ import { IonRouterOutlet, ModalController, Platform } from '@ionic/angular';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
   items = [
     {
@@ -30,7 +31,7 @@ export class HomePage {
     },
   ];
 
-  constructor(private platform: Platform, private ionRouterOutlet: IonRouterOutlet, public modal: ModalController) {
+  constructor(private platform: Platform, private ionRouterOutlet: IonRouterOutlet, public modal: ModalController, private router: Router) {
     this.platform.backButton.subscribeWithPriority(-1, () => {
       if(this.ionRouterOutlet.activatedView.stackId === 'home' && !this.ionRouterOutlet.canGoBack()) {
         App.exitApp();
@@ -38,4 +39,11 @@ export class HomePage {
     });
   }
 
+  ngOnInit(): void {
+    const presentation = localStorage.getItem('presentation');
+    if(!presentation) {
+      localStorage.setItem('presentation', '1');
+      this.router.navigateByUrl('/presentation', { replaceUrl: true });
+    }
+  }
 }

@@ -26,6 +26,14 @@ const routes: Routes = [
     path: 'types-of-financial-reserve',
     loadChildren: () => import('./screens/types-of-financial-reserve/types-of-financial-reserve.module').then(e => e.TypesOfFinancialReservePageModule)
   },
+  {
+    path: 'memory-game',
+    loadChildren: () => import('./screens/memory-game/memory-game.module').then(e => e.MemoryGamePageModule)
+  },
+  {
+    path: 'presentation',
+    loadChildren: () => import('./screens/presentation/presentation.module').then( m => m.PresentationPageModule)
+  }
 ];
 
 @NgModule({

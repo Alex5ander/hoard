@@ -1,0 +1,48 @@
+.card {
+    perspective: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .3s ease-in-out;
+    aspect-ratio: 1;
+}
+
+.card-block {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    backface-visibility: hidden;
+    padding: 1rem;
+}
+
+.card-front {
+    transform: rotateY(180deg);
+    background-color: #8EDCE6;
+}
+
+.card-back {
+    transform: rotateY(0deg);
+    background-color: #E0FF4F;
+    font-size: 4rem;
+}
+
+.card.open {
+    transform: rotateY(-180deg);
+}
+
+.card.close {
+    transform: rotateY(0deg);
+}
+
+.card.correct {
+    transform: rotateY(-180deg);
+}
+.card.correct .card-front {
+    background-color: #2E933C;
+}

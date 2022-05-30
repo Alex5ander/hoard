@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start" color="main" ></ion-back-button>
+    <ion-title color="main">Jogos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of contents" class="ion-card-rounded">
+    <ion-card-header class="green">
+      <ion-card-title>{{ item.title }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-button expand="full" color="main" [routerLink]="item.routerLink" >PLAY</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

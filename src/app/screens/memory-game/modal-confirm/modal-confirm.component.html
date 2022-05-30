@@ -1,0 +1,34 @@
+
+<ion-header>
+    <ion-toolbar>
+        <ion-title class="ion-text-center">A afirmação a seguir é?</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="ion-align-items-center">
+        <ion-row>
+            <ion-col>
+                <div class="card">
+                    {{ word.text }}
+                </div>
+            </ion-col>
+            
+            <ion-col>
+               <div class="card">
+                {{ answer.text }}
+               </div>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-button expand="full" color="green" (click)="is(true)" >Verdadeiro</ion-button>
+            </ion-col>
+        
+            <ion-col>
+                <ion-button expand="full" color="red" (click)="is(false)" >Falso</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
