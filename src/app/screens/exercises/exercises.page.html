@@ -5,6 +5,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
+  <ion-item *ngFor="let item of exercices" [routerLink]="item.routerLink">
+   <ion-label class="ion-text-wrap" >{{item.title}}</ion-label>
+   <ion-icon slot="end" name="pencil-outline" color="main"></ion-icon>
+  </ion-item>
 </ion-content>

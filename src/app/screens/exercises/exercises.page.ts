@@ -7,6 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExercisesPage implements OnInit {
 
+  exercices = [
+    {
+      title: 'Teste o que você aprendeu sobre organização financeira',
+      routerLink: '#'
+    },
+    {
+      title: 'Teste o que você aprendeu sobre tipos de reservas financeira',
+      routerLink: '#'
+    },
+    {
+      title: 'Teste o que você aprendeu sobre regra 50 30 20',
+      routerLink: '#'
+    }
+  ];
+
   constructor() { }
 
   ngOnInit() {

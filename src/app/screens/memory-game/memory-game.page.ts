@@ -10,6 +10,8 @@ import { ModalResultComponent } from './modal-result/modal-result.component';
 })
 export class MemoryGamePage implements OnInit {
 
+  counter = 0;
+
   words = [
     {
       text: 'Amealhar',
@@ -68,6 +70,20 @@ export class MemoryGamePage implements OnInit {
     this.shuffle();
   }
 
+  startCounter() {
+    let t;
+    const count = () => {
+
+      t = setTimeout(count, 1000);
+      this.counter += 1;
+      if(this.counter === 6) {
+        clearTimeout(t);
+      }
+    };
+
+    count();
+  }
+
   shuffle() {
     const wordsSort = this.words.sort(() => Math.floor(Math.random() * 100) > 50 ? 1 : -1);
     const answersSort = this.answers.sort(() => Math.floor(Math.random() * 100) > 50 ? 1 : -1);
@@ -75,6 +91,8 @@ export class MemoryGamePage implements OnInit {
     for(let i = 0; i < this.words.length; i++) {
       this.cards[i] = [ wordsSort[i], answersSort[i] ];
     }
+
+    this.startCounter();
 
     setTimeout(() => {
       this.cards = this.cards.map(card => {
@@ -135,7 +153,7 @@ export class MemoryGamePage implements OnInit {
           answer: this.answer,
         }
       });
-      setTimeout(() => modalConfirm.present(), 500);
+      await modalConfirm.present();
       const pair = this.word.id === this.answer.id;
       const data = await (await modalConfirm.onDidDismiss()).data;
       if(data) {
@@ -149,7 +167,6 @@ export class MemoryGamePage implements OnInit {
       }else {
         this.word.status = 'close';
         this.answer.status = 'close';
-        this.shuffle();
       }
 
       const endgame = this.cards.every(card => card[0].status === 'correct' && card[1].status === 'correct');

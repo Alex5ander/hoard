@@ -1,7 +1,19 @@
 <ion-header>
     <ion-toolbar>
         <ion-back-button color="main" slot="start"></ion-back-button>
-        <ion-title>Jogo da memória financeira</ion-title>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="auto" >
+            <ion-text color="green">
+              Acertos: <ion-text color="dark">{{ targets }}</ion-text>
+            </ion-text>
+          </ion-col>
+
+          <ion-col size="auto" >
+            <ion-text color="red">
+              Erros: <ion-text color="dark">{{ errors }}</ion-text>
+            </ion-text>
+          </ion-col>
+        </ion-row>
     </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen] >
@@ -52,4 +64,11 @@
         </ion-row>
     </ion-grid>
 </ion-content>
+
+<div class="counter" [hidden]="counter > 5" >
+  <div>
+    <h1>Memorize!</h1>
+    <h2>{{counter}}</h2>
+  </div>
+</div>
 
