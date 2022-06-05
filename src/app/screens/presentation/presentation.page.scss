@@ -1,0 +1,44 @@
+.slides {
+  position: absolute;
+  overflow-x: scroll;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.slides::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  flex: 1 0 auto;
+  padding: 1rem;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to bottom,  var(--ion-color-main), #fff);
+  justify-content: space-between;
+  scroll-snap-align: start;
+}
+
+.pagination-bullet {
+  border-radius: 50%;
+  width: 1.5rem;
+  height:1.5rem;
+  background-color: var(--ion-color-main);
+  border: .2rem solid var(--ion-color-main);
+  margin: auto;
+
+  &.active {
+    background-color: var(--ion-color-main-contrast);
+  }
+}
+

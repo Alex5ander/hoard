@@ -17,6 +17,6 @@ export class ModalResultComponent implements OnInit {
 
   goHome() {
     this.modal.dismiss();
-    this.route.navigateByUrl('/home');
+    this.route.navigateByUrl('/tabs/home');
   }
 }

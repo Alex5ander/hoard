@@ -107,12 +107,23 @@ export class MemoryGamePage implements OnInit {
     this.word.status = 'correct';
     this.answer.status = 'correct';
     this.targets += 1;
+
+    this.answer = null;
+    this.word = null;
   }
 
   wrong() {
-    this.word.status = 'close';
-    this.answer.status = 'close';
+    this.word.status = 'close error';
+    this.answer.status = 'close error';
     this.errors += 1;
+
+    setTimeout(() => {
+      this.word.status = 'close';
+      this.answer.status = 'close';
+
+      this.answer = null;
+      this.word = null;
+    }, 300);
   }
 
   async checkSelectedCards() {
@@ -140,8 +151,6 @@ export class MemoryGamePage implements OnInit {
         this.answer.status = 'close';
         this.shuffle();
       }
-      this.answer = null;
-      this.word = null;
 
       const endgame = this.cards.every(card => card[0].status === 'correct' && card[1].status === 'correct');
       if(endgame) {

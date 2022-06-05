@@ -1,13 +1,54 @@
-<ion-content fullscreen="">
-  <div class="slides">
+<ion-content [fullscreen] [scrollX]="false" >
+  <div class="slides" (scroll)="scroll($event)" >
     <div class="slide">
-      <h1>O que é o nosso aplicativo</h1>
+      <div>
+        <ion-img width="80" src="assets/handshake_icon.svg" ></ion-img>
+
+        <ion-text class="ion-text-center">
+          <h1>Bem vindo!</h1>
+
+          <p>
+            Hoard é um aplicativo sobre educação financeira desenvolvido para ajudar jovens a aprender assuntos relacionado a finanças pessoais,
+            e ter uma visão melhor sobre como o dinheiro funciona.
+          </p>
+        </ion-text>
+      </div>
     </div>
+
     <div class="slide">
-      <h1>Qual o problema ele se propoem a resolver?</h1>
+      <div>
+        <ion-img width="80" src="assets/pen-pencil.svg" ></ion-img>
+
+        <ion-text class="ion-text-center">
+          <h1>Exercícios e jogos</h1>
+
+          <p>
+            A prática ajuda a absorver melhor o conteúdo, por isso nosso aplicativo conta com execícios e jogos para ajuda lo em seu aprendizado.
+          </p>
+        </ion-text>
+      </div>
     </div>
+
     <div class="slide">
-      <ion-button routerLink="/">Continuar</ion-button>
+      <h1>Pronto para começar!</h1>
+
+      <ion-button expand="block" color="main" routerLink="/tabs">Sim<ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </div>
   </div>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto">
+        <div class="pagination-bullet" [ngClass]="index === 0 ? 'active' : '' " ></div>
+      </ion-col>
+      <ion-col size="auto">
+        <div class="pagination-bullet" [ngClass]="index === 1 ? 'active' : '' " ></div>
+      </ion-col>
+      <ion-col size="auto">
+        <div class="pagination-bullet" [ngClass]="index === 2 ? 'active' : '' " ></div>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

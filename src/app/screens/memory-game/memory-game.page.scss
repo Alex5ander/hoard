@@ -44,5 +44,24 @@
     transform: rotateY(-180deg);
 }
 .card.correct .card-front {
-    background-color: #2E933C;
+    background-color: var(--ion-color-green);
+}
+.card.error {
+  animation: errorAnimation .2s infinite ease-in-out;
+
+  .card-back {
+    background-color: var(--ion-color-red);
+  }
+}
+
+@keyframes errorAnimation {
+  0% {
+    transform: translateX(-5%);
+  }
+  50% {
+    transform: translateX(5%);
+  }
+  100% {
+    transform: translateX(-5%);
+  }
 }

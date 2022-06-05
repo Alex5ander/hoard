@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start" color="main" ></ion-back-button>
+    <ion-title color="main">Criptomoedas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+ <div class="border ion-padding">
+  <ion-title>
+    O que é uma criptomoeda?
+  </ion-title>
+
+  <ion-text>
+    Uma criptomoeda é um tipo de dinheiro, assim como o real ou o dolar, porém é digital, e elas não são emitidas por nenhum governo, além disso algumas como no caso do
+    bitcoin tem um limite, ou seja o bitcoin é programado para que somente 21 milhões de moedas sejam emitidas, diferente dos dinheiros fisícos onde podem
+    ser emitidos conforme os países sentirem necessidade.
+  </ion-text>
+ </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-thumbnail>
+        <ion-img src="assets/images/bitcoin.png" ></ion-img>
+      </ion-thumbnail>
+      <ion-card-title>Bitcoin</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card-subtitle>Preço atual {{ bitcoin?.ticker.last | currency : 'R$ ' }}</ion-card-subtitle>
+
+      <small>Informações obtidas do Mercado Bitcoin API</small>
+    </ion-card-content>
+  </ion-card>
+
+  <hr>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-thumbnail>
+        <ion-img src="assets/images/ethereum.png" ></ion-img>
+      </ion-thumbnail>
+      <ion-card-title>Ethereum</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card-subtitle>Preço atual {{ ethereum?.ticker.last | currency : 'R$ ' }}</ion-card-subtitle>
+
+      <small>Informações obtidas do Mercado Bitcoin API</small>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

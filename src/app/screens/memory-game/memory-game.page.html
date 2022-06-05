@@ -17,7 +17,7 @@
         </ion-row>
         <ion-row class="ion-wrap ion-justify-content-center" *ngFor="let card of cards" >
            <ion-col (click)="onWordPress(card[0])">
-               
+
                <div class="card ion-activatable ripple-parent" [ngClass]="card[0].status">
 
                     <div class="card-block card-front">
@@ -30,11 +30,11 @@
 
                     <ion-ripple-effect></ion-ripple-effect>
                 </div>
-               
+
            </ion-col>
 
            <ion-col (click)="onAnswerPress(card[1])">
-               
+
             <div class="card ion-activatable ripple-parent" [ngClass]="card[1].status">
 
                 <div class="card-block card-front">

@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PresentationPage implements OnInit {
 
+  index = 0;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  scroll(event) {
+    const el = event.target;
+    this.index = Math.floor(el.scrollLeft / window.innerWidth);
   }
 
 }
