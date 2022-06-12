@@ -14,8 +14,8 @@ import { CompoundInterestPage } from './compound-interest.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    CompoundInterestPageRoutingModule
+    CompoundInterestPageRoutingModule,
   ],
-  declarations: [CompoundInterestPage]
+  declarations: [CompoundInterestPage],
 })
 export class CompoundInterestPageModule {}
