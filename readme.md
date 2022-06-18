@@ -8,8 +8,8 @@
 
 #### Ainda não está disponível nas lojas dos dispositivos moveis, mas você pode estar baixando através desse link, ou pelo nosso qrcode.
 
+<a href="https://github.com/Alex5ander/hoard/raw/main/app-release.apk" download >Download</a>
+
 <div align="center">
   <img width="300" src="QRCode_download.png" >
 </div>
-
-<a href="https://github.com/Alex5ander/hoard/raw/main/app-release.apk" download >Download</a>
