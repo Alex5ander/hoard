@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-financial-organization',
@@ -6,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./financial-organization.page.scss'],
 })
 export class FinancialOrganizationPage implements OnInit {
-
   contents = [
     {
       title: 'Organização Financeira',
@@ -16,12 +16,12 @@ export class FinancialOrganizationPage implements OnInit {
     {
       title: 'Conheça sua situação financeira:',
       imageUrl: 'financial-organization 2.png',
-      text: 'Cada pessoa tem seus hábitos de consumo e a sua maneira de organizar o dinheiro. Algumas têm mais facilidade para poupar, enquanto outras não resistem àquelas comprinhas por impulso e veem o dinheiro sumir antes do fim do mês. Para montar o seu planejamento financeiro pessoal, faça um exercício de reflexão e seja sincero consigo mesmo. Avalie os seus hábitos de consumo, entenda de que maneira você lida com o dinheiro e quais são as suas dificuldades no momento. Quem está com dívidas em atraso, por exemplo, já deve mapear todas elas para entender o tamanho do problema. É importante conhecer o saldo devedor - considerando os juros - e o valor das parcelas atrasadas antes de partir para a renegociação. '
+      text: 'Cada pessoa tem seus hábitos de consumo e a sua maneira de organizar o dinheiro. Algumas têm mais facilidade para poupar, enquanto outras não resistem àquelas comprinhas por impulso e veem o dinheiro sumir antes do fim do mês. Para montar o seu planejamento financeiro pessoal, faça um exercício de reflexão e seja sincero consigo mesmo. Avalie os seus hábitos de consumo, entenda de que maneira você lida com o dinheiro e quais são as suas dificuldades no momento. Quem está com dívidas em atraso, por exemplo, já deve mapear todas elas para entender o tamanho do problema. É importante conhecer o saldo devedor - considerando os juros - e o valor das parcelas atrasadas antes de partir para a renegociação. ',
     },
     {
       title: 'Controle de suas finanças pessoais:',
       imageUrl: 'financial-organization 3.png',
-      text: 'Uma boa estratégia para controlar suas finanças, como dito antes, é anotar todas as suas receitas e despesas. Anote todos os gastos, até mesmo aquele que parecem insignificantes como a compra de um sorvete. O ideal aqui é fazer anotações diariamente para não deixar nenhum detalhe para trás. Para essa tarefa também é possível usar app e planilhas de planejamento financeiro. Fazer anotações sobre todas as entradas e saídas, além de garantir maior controle, contribui para um diagnóstico mais preciso da situação financeira. Assim é possível perceber quais são os pontos fracos e fortes das finanças, reorganizar gastos e cortar despesas desnecessárias.'
+      text: 'Uma boa estratégia para controlar suas finanças, como dito antes, é anotar todas as suas receitas e despesas. Anote todos os gastos, até mesmo aquele que parecem insignificantes como a compra de um sorvete. O ideal aqui é fazer anotações diariamente para não deixar nenhum detalhe para trás. Para essa tarefa também é possível usar app e planilhas de planejamento financeiro. Fazer anotações sobre todas as entradas e saídas, além de garantir maior controle, contribui para um diagnóstico mais preciso da situação financeira. Assim é possível perceber quais são os pontos fracos e fortes das finanças, reorganizar gastos e cortar despesas desnecessárias.',
     },
     {
       title: 'Traçe suas metas financeiras:',
@@ -47,23 +47,24 @@ export class FinancialOrganizationPage implements OnInit {
       title: 'Estabeleça um padrão de vida:',
       imageUrl: 'financial-organization 8.png',
       text: 'Viver intensamente é um dos objetivos de muito gente. No entanto, pensar somente no presente pode ser uma prática nociva à saúde da vida financeira. É preciso também pensar no futuro. Nesse contexto é preciso avaliar o percentual da receita destinado a cada tipo de despesa e tentar limitar aquelas sendo menos relevantes. Assim será possível destinar uma quantia para investimento todo mês.',
-    }
+    },
   ];
 
   index = 0;
-  constructor() { }
+  constructor(private nav: NavController) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   previous() {
-    if(this.index > 0) {
+    if (this.index > 0) {
       this.index -= 1;
     }
   }
   next() {
-    if(this.index < this.contents.length -1) {
+    if (this.index < this.contents.length - 1) {
       this.index += 1;
+    } else {
+      this.nav.back();
     }
   }
 }

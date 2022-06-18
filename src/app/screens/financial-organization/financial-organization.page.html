@@ -3,36 +3,41 @@
     <ion-back-button color="main" slot="start"></ion-back-button>
     <ion-title>Organização financeira</ion-title>
   </ion-toolbar>
-  <ion-progress-bar [value]="(index + 1) / contents.length" color="main"></ion-progress-bar>
+  <ion-progress-bar
+    [value]="(index + 1) / contents.length"
+    color="main"
+  ></ion-progress-bar>
 </ion-header>
 
 <ion-content class="ion-padding">
-
   <ion-card>
     <ion-card-header>
-      <ion-card-title>
-        {{ contents[index].title }}
-      </ion-card-title>
+      <ion-card-title> {{ contents[index].title }} </ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <ion-img [src]="'assets/images/'+contents[index].imageUrl" ></ion-img>
-      <ion-text>
-        {{ contents[index].text }}
-      </ion-text>
+      <ion-img [src]="'assets/images/'+contents[index].imageUrl"></ion-img>
+      <ion-text> {{ contents[index].text }} </ion-text>
     </ion-card-content>
   </ion-card>
-
 </ion-content>
 
 <ion-footer class="ion-padding">
   <ion-row class="ion-justify-content-between">
-    <ion-button color="red" expand="full" (click)="previous()" >
+    <ion-button
+      color="red"
+      expand="full"
+      (click)="previous()"
+      [ngStyle]="index === 0 ? {opacity:0} : {} "
+    >
       <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
     </ion-button>
 
-    <ion-button color="green" expand="full" (click)="next()" [hidden]="index === contents.length -1"  >
-      <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+    <ion-button color="green" expand="full" (click)="next()">
+      <ion-icon
+        slot="icon-only"
+        [name]="index < contents.length -1 ? 'arrow-forward': 'exit-outline' "
+      ></ion-icon>
     </ion-button>
   </ion-row>
 </ion-footer>

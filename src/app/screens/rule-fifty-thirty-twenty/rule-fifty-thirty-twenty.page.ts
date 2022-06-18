@@ -1,3 +1,4 @@
+import { NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,12 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rule-fifty-thirty-twenty.page.scss'],
 })
 export class RuleFiftyThirtyTwentyPage implements OnInit {
-
   contents = [
     {
-      title:'Regra 50 30 20',
+      title: 'Regra 50 30 20',
       text: 'Regra 50 30 20 é um metódo para organizar seu orçamento. Dividindo seu dinheiro em três',
-      content: []
+      content: [],
     },
     {
       title: '50% gastos essenciais.',
@@ -23,8 +23,8 @@ export class RuleFiftyThirtyTwentyPage implements OnInit {
         'Gás de cozinha',
         'Saúde',
         'Educação',
-        'Transporte'
-      ]
+        'Transporte',
+      ],
     },
     {
       title: '30% lazer e atividades extracurriculares.',
@@ -34,8 +34,8 @@ export class RuleFiftyThirtyTwentyPage implements OnInit {
         'Restaurante',
         'Cinema',
         'Serviços de streaming',
-        ' TV por assinatura'
-      ]
+        ' TV por assinatura',
+      ],
     },
     {
       title: '20% metas financeiras dividas, investimentos, ou apenas guardar.',
@@ -44,25 +44,26 @@ export class RuleFiftyThirtyTwentyPage implements OnInit {
         'Contas em atraso',
         'Financiamentos imobiliários ou automotivos',
         'Pagar empréstimos',
-        'Guardar para uma reserva de emergência'
-      ]
-    }
+        'Guardar para uma reserva de emergência',
+      ],
+    },
   ];
 
   index = 0;
 
-  constructor() { }
+  constructor(private nav: NavController) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   next() {
-    if(this.index < this.contents.length - 1) {
+    if (this.index < this.contents.length - 1) {
       this.index += 1;
+    } else {
+      this.nav.back();
     }
   }
   previous() {
-    if(this.index > 0) {
+    if (this.index > 0) {
       this.index -= 1;
     }
   }
