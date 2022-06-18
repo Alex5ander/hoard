@@ -1,9 +1,9 @@
-# Hoard
+<h1 align="center" >Hoard</h1>
 
 #### Hoard é um aplicativo sobre educação financeira desenvolvido para ajudar jovens a aprender melhor como utilizar o dinheiro e ter uma vida financeira saudável.
 
 <div align="center">
-  <img width="300" src="/resources/icon.png" >
+  <img width="300" src="resources/icon.png" >
 </div>
 
 #### Ainda não está disponível nas lojas dos dispositivos moveis, mas você pode estar baixando através desse link, ou pelo nosso qrcode.
