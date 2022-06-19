@@ -1,0 +1,6 @@
+{
+	"appId": "br.com.hoard",
+	"appName": "Hoard",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
