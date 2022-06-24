@@ -7,25 +7,27 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-
   basicContent = [
     {
       title: 'Organização financeira',
-      description: 'Como se organizar de forma simples para reduzir problemas financeiros',
+      description:
+        'Como se organizar de forma simples para reduzir problemas financeiros',
       routerLink: 'financial-organization',
-      imageUrl: 'assets/finacial-organization.svg'
+      imageUrl: 'assets/finacial-organization.svg',
     },
     {
       title: 'Regra 50-30-20',
-      description: 'Aqui você você vai conhecer um metódo para organizar seu orçamento',
+      description:
+        'Aqui você você vai conhecer um metódo para organizar seu orçamento',
       routerLink: 'rule-fifty-thirty-twenty',
       imageUrl: 'assets/graph-pie.svg',
     },
     {
       title: 'Tipos de reservas',
-      description: 'Aqui você vai conhecer alguns tipos de reservas financeiras, e para que elas devem ser usadas',
+      description:
+        'Aqui você vai conhecer alguns tipos de reservas financeiras, e para que elas devem ser usadas',
       routerLink: 'types-of-financial-reserve',
-      imageUrl: 'assets/finance-saving.svg'
+      imageUrl: 'assets/finance-saving.svg',
     },
   ];
 
@@ -35,11 +37,10 @@ export class HomePage implements OnInit {
       description: 'O que são criptomoedas?',
       routerLink: 'cryptocurrencies',
       imageUrl: 'assets/images/cryptocurrencies.png',
-    }
+    },
   ];
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit(): void {
     // const presentation = localStorage.getItem('presentation');

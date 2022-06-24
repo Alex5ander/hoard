@@ -19,16 +19,16 @@
       </ion-card-header>
 
       <ion-card-content>
-        <ion-card-subtitle>{{item.description}}</ion-card-subtitle>
+        <ion-text>{{item.description}}</ion-text>
       </ion-card-content>
 
     </ion-card>
+    
+    <ion-text>
+      <h4 class="ion-padding-horizontal">Avançado</h4>
+    </ion-text>
 
-    <hr>
-
-    <ion-title>Avançado</ion-title>
-
-      <ion-card *ngFor="let item of advancedContent" [routerLink]="'/'+item.routerLink">
+    <ion-card *ngFor="let item of advancedContent" [routerLink]="'/'+item.routerLink">
 
       <ion-card-header>
         <ion-img [src]="item.imageUrl"></ion-img>
@@ -37,7 +37,7 @@
       </ion-card-header>
 
       <ion-card-content>
-        <ion-card-subtitle>{{ item.description }}</ion-card-subtitle>
+        <ion-text>{{ item.description }}</ion-text>
       </ion-card-content>
 
     </ion-card>
