@@ -6,17 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./games.page.scss'],
 })
 export class GamesPage implements OnInit {
+  contents = [];
 
-  contents = [
-    {
-      title: 'Jogo da memória financeira',
-      routerLink:'/memory-game',
-    }
-  ];
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
